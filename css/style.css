@@ -20,6 +20,7 @@ html, body {
     left: 20%;
 }
 
+/* resize the caroussel caption to a bit lower for the h1 caption */
 .carousel-caption h1 {
     font-size: 2.0rem;
     font-weight: bold;
