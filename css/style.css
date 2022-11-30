@@ -5,6 +5,8 @@ html, body {
 
 .col:empty, [class^=col-]:empty { display: none; }
 
+
+
 /* eastern custom styling below */
 
 /* for the carousel on the index page with a gray background */
@@ -46,4 +48,42 @@ html, body {
 .content img {
     max-width: 100%; /* resize automatically if image bigger than content space */
     height: auto;
+}
+
+/* end of eastern */
+
+blockquote{
+    border-left:none
+}
+
+.quote-badge{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.quote-box{
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: lightgrey;
+    text-align: center;
+    margin-top: 25px;
+    color:black;
+    box-shadow: 2px 2px 2px 2px #E0E0E0;
+    bottom:10%;
+    left: 20%;
+}
+
+.quotation-mark{
+
+
+    font-weight: bold;
+    font-size: 5rem;
+    color: black;
+    font-family: "Times New Roman", Georgia, Serif;
+
+}
+
+.quote-text{
+
+    font-size: 1.5rem;
+    margin-top: -65px;
 }
