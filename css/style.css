@@ -5,11 +5,9 @@ html, body {
 
 .col:empty, [class^=col-]:empty { display: none; }
 
-.h1 {
-    font-weight:  bold;
-    font-size: 18px;
-}
+/* eastern custom styling below */
 
+/* for the carousel on the index page with a gray background */
 .carousel-caption {
     background: rgba(113, 113, 114, 0.8);
     border-radius: 10px;
@@ -20,4 +18,25 @@ html, body {
     top: unset;
     bottom:10%;
     left: 20%;
+}
+
+/* custom font size for the h1 h2 and h3 blocks in the blog and content */
+.content > h1 {
+    font-weight:  bold;
+    font-size: 1.5rem;
+}
+
+.content > h2 {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.content > h3 {
+    font-weight:  bold;
+    font-size: 1.3rem;
+}
+
+.content img {
+    max-width: 100%; /* resize automatically if image bigger than content space */
+    height: auto;
 }

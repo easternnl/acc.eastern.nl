@@ -16,7 +16,7 @@
 
     
     
-    <title>Eastern.nl - Performance Engineering done with passion | Pages</title>
+    <title>Eastern.nl - Performance Engineering done with passion | Detailed logon information from Citrix Director</title>
 </head><body class="d-flex flex-column min-vh-100"><div class="container">
     <div class="row">
         <div class="col-lg-12 p-0">
@@ -109,14 +109,6 @@
 
                         
 
-<li class="nav-item">
-	<a class="nav-link" href ="https://acc.eastern.nl/nl/pages/">
-		<img alt="This site in nl" src="/images/language/nl.png">
-	</a>
-</li>
-
-
-
 
                     </ul>
                 </div>
@@ -127,105 +119,128 @@
 <div id="content">
 <div class="bg-dark">
     <div class="container">
-        <div class="row bg-dark text-white">
+        <div class="row bg-dark text-white" >
             <div class="col-md-12">
-                <h1>Pages</h1>
+                <h1>Detailed logon information from Citrix Director</h1>
             </div>
         </div>
+        <div class="row bg-dark text-white" >
+            <div class="col-md-8 text-secondary mt-1 mb-3">
+                A more detailed analysis of your logon times
+            </div>
+            <div class="col-md-4 text-secondary mb-2">
+
+                
+                    Tags:
+
+                    
+                        
+                        <a class="text-secondary" href="https://acc.eastern.nl/en/tags/performance">performance</a>
+                    
+                        
+                        <a class="text-secondary" href="https://acc.eastern.nl/en/tags/citrix">citrix</a>
+                    
+                
+
+
+                
+                    
+                    
+
+                    | <time datetime="2015-12-01">Dec 1, 2015</time>
+
+                
+
+
+            </div>
+
+        </div>
     </div>
 </div>
 
-    <div class="container">
 
 
-    
-
+<div class="container">
     <div class="row text-dark bg-white" >
-        <div class="col-12">
-            <h3>
-                <a class="text-secondary title" href="/en/pages/contact/">Contact</a>
-            </h3>
-            <p class="text-secondary">Detailed contact information for Eastern</p>
+        <div class="col-12 content">
 
-            <p class="text-secondary">Tags:
-                
-            
-                |
-                
-                
-                <i data-feather="calendar"></i>
-                <time datetime="2022-09-21">21 September 2022</time>
-            
-            </p>
+            <h1 id="why-to-have-detailed-logon-information-from-citrix">Why to have detailed logon information from Citrix?</h1>
+<p>Sometimes anyone is asking you, the performance is not what we like. Within a Citrix environment it is easy to get into the director to see the overview of the logon times.
+By default Citrix Director gives the following information about the logon:</p>
+<p><a href="images/citrix-director.png"><img src="images/citrix-director.png" alt=""></a></p>
+<figure><img src="images/citrix-director.png" width="100%"/>
+</figure>
 
-            <p> Contact Mobile: &#43;31 6 55 118 025
-Email: erik@eastern.nl
-Website: http://www.eastern.nl Mailing adresss Balustrade 20
-7325 GP Apeldoorn
-The Netherlands Other information IBAN: NL40RABO0393346072
-KvK: 08132235
-VAT: NL002033564B54 Terms and conditions Nederland ICT 2014 </p>
-            <a class="summary text-black-50" href="/en/pages/contact/">
-                Continue reading ...
-            </a>
+<p>However average is a good indication, average is not always the best method to measure something. Digging in to the numbers can be needed to get the exceptions clear.
+This blog will shortly explain how to get more detailed information from your database.</p>
+<h1 id="what-kind-of-results-do-you-get">What kind of results do you get?</h1>
+<p>My final report shows the following:</p>
+<p><a href="images/graph.png"><img src="images/graph.png" alt=""></a></p>
+<p>This gives more detailed information about how long users need to wait for a logon. The data in this graph is based on the field InteractiveDesktop from the query below.</p>
+<p>But also any table with detailed information can be made. Or query on user, query on VDI name, e.g.</p>
+<h1 id="my-baseline-tools">My baseline tools</h1>
+<p>I used the following tools to create this graph:</p>
+<pre><code>Microsoft Excel
+SQL Server Management Studio
+</code></pre>
+<p>The results of the query in SQL Server Management Studio can easily copied into Excel. With Pivot tables you can create this kind of graphs.</p>
+<h1 id="sql-code">SQL code</h1>
+<p>When you run the following query on the Monitoring Database it will give a lot of output.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">/* Citrix Director only gives Average information about logon. 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">This query gives detailed and calculated information about the logontimes. */</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/****** Script for SelectTopNRows command from SSMS  ******/</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> LogonDuration <span style="color:#f92672">=</span> DATEDIFF(<span style="color:#66d9ef">Second</span>, [LogOnStartDate], [LogOnEndDate])
+</span></span><span style="display:flex;"><span>      ,[BrokeringDuration]
+</span></span><span style="display:flex;"><span>      ,[AuthenticationDuration]
+</span></span><span style="display:flex;"><span>      ,GpoDuration <span style="color:#f92672">=</span> DATEDIFF(<span style="color:#66d9ef">Second</span>, [GpoStartDate], [GpoEndDate])
+</span></span><span style="display:flex;"><span>      ,InteractiveDesktop <span style="color:#f92672">=</span> DATEDIFF(<span style="color:#66d9ef">Second</span>, [BrokeringDate],[InteractiveEndDate])
+</span></span><span style="display:flex;"><span>      ,FORMAT([BrokeringDate] , <span style="color:#e6db74">&#39;dd-MM-yyyy&#39;</span>) <span style="color:#66d9ef">AS</span> EasyDate
+</span></span><span style="display:flex;"><span>      ,FORMAT([BrokeringDate] , <span style="color:#e6db74">&#39;HH&#39;</span>) <span style="color:#66d9ef">AS</span> EasyHour
+</span></span><span style="display:flex;"><span>      ,[Name] <span style="color:#66d9ef">AS</span> VM
+</span></span><span style="display:flex;"><span>      ,[ClientName]
+</span></span><span style="display:flex;"><span>      ,[ClientAddress]
+</span></span><span style="display:flex;"><span>      ,[ClientVersion]
+</span></span><span style="display:flex;"><span>      ,[ConnectedViaHostName]
+</span></span><span style="display:flex;"><span>      ,[ConnectedViaIPAddress]
+</span></span><span style="display:flex;"><span>      ,[LaunchedViaHostName]
+</span></span><span style="display:flex;"><span>      ,[LaunchedViaIPAddress]     
+</span></span><span style="display:flex;"><span>      ,[LogOnStartDate]
+</span></span><span style="display:flex;"><span>      ,[LogOnEndDate]
+</span></span><span style="display:flex;"><span>      ,[BrokeringDuration]
+</span></span><span style="display:flex;"><span>      ,[BrokeringDate]
+</span></span><span style="display:flex;"><span>      ,[DisconnectCode]
+</span></span><span style="display:flex;"><span>      ,[DisconnectDate]     
+</span></span><span style="display:flex;"><span>      ,[ClientSessionValidateDate]
+</span></span><span style="display:flex;"><span>      ,[ServerSessionValidateDate]
+</span></span><span style="display:flex;"><span>      ,[EstablishmentDate]     
+</span></span><span style="display:flex;"><span>      ,[AuthenticationDuration]
+</span></span><span style="display:flex;"><span>      ,[GpoStartDate]
+</span></span><span style="display:flex;"><span>      ,[GpoEndDate]
+</span></span><span style="display:flex;"><span>      ,[LogOnScriptsStartDate]
+</span></span><span style="display:flex;"><span>      ,[LogOnScriptsEndDate]
+</span></span><span style="display:flex;"><span>      ,[ProfileLoadStartDate]
+</span></span><span style="display:flex;"><span>      ,[ProfileLoadEndDate]
+</span></span><span style="display:flex;"><span>      ,[InteractiveStartDate]
+</span></span><span style="display:flex;"><span>      ,[InteractiveEndDate]     
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">FROM</span> [MonitorData].[<span style="color:#66d9ef">Connection</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">JOIN</span> [MonitorData].[<span style="color:#66d9ef">Session</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">ON</span> ([MonitorData].[<span style="color:#66d9ef">Connection</span>].[SessionKey] <span style="color:#f92672">=</span> [MonitorData].[<span style="color:#66d9ef">Session</span>].[SessionKey] )
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">JOIN</span> [MonitorData].[Machine]
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">ON</span> ([MonitorData].[<span style="color:#66d9ef">Session</span>].[MachineId] <span style="color:#f92672">=</span> [MonitorData].[Machine].[Id])
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">Convert</span>(date,[LogOnStartDate]) <span style="color:#f92672">=</span> <span style="color:#66d9ef">Convert</span>(date,GETDATE())
+</span></span></code></pre></div><h1 id="conclusion">Conclusion</h1>
+<p>Citrix is logging a lot of information in the database, but unfortunately the Director is not showing the information. With SQL query’s there are a lot of options to query this information.
+All details about the values in the database can be found here: support.citrix.com
+Depending on the Citrix license which is purchased, more or less information is stored in the database. Please keep in mind that old records in the database will be cleared automatically. So make you’re report on time, or create something to save the data.</p>
+
         </div>
     </div>
-    
 
-    <div class="row text-dark bg-white" >
-        <div class="col-12">
-            <h3>
-                <a class="text-secondary title" href="/en/pages/references/">References</a>
-            </h3>
-            <p class="text-secondary">What other say</p>
-
-            <p class="text-secondary">Tags:
-                
-            
-                |
-                
-                
-                <i data-feather="calendar"></i>
-                <time datetime="2022-09-21">21 September 2022</time>
-            
-            </p>
-
-            <p>Ik heb Erik leren kennen tijdens mijn rol als projectmanager ‘Ontwikkeling werkplek infrastructuur’ bij het VUmc. Erik heeft een belangrijke rol gespeeld in ons skilled testteam, waarbij Erik verantwoordelijk was voor de uitvoering en, bij afwezigheid van de testmanager, de coördinatie van de testen. Erik heeft goede ICT infrastructurele kennis, en weet zijn kennis goed te combineren met collega’s. Erik is praktisch, heeft een gezonde drive voor kwaliteit, kan prioriteiten stellen en staat open voor veranderingen in planningen.</p>
-            <a class="summary text-black-50" href="/en/pages/references/">
-                Continue reading ...
-            </a>
-        </div>
-    </div>
-    
-
-    <div class="row text-dark bg-white" >
-        <div class="col-12">
-            <h3>
-                <a class="text-secondary title" href="/en/pages/aboutme/">About me</a>
-            </h3>
-            <p class="text-secondary">More about Erik</p>
-
-            <p class="text-secondary">Tags:
-                
-            
-                |
-                
-                
-                <i data-feather="calendar"></i>
-                <time datetime="2022-09-21">21 September 2022</time>
-            
-            </p>
-
-            <p>My name is Erik van Oost, living in Apeldoorn – The Netherlands and IT-freelancer since 2003. My passion for IT brings me to places where I work with much enjoyment for organizations who hire me.
-I have more than 10 years of work experience within IT. In the last years, I have done several large and small projects using multiple disciplines of the profession I have experience.
-For large enterprises with many workplaces I participated in the entire area around desktop life cycle management, also called IT workplace.</p>
-            <a class="summary text-black-50" href="/en/pages/aboutme/">
-                Continue reading ...
-            </a>
-        </div>
-    </div>
-    
 </div>
+
 
 
         </div><footer class="mt-auto bg-dark">
