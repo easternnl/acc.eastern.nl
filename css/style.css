@@ -5,8 +5,6 @@ html, body {
 
 .col:empty, [class^=col-]:empty { display: none; }
 
-
-
 /* eastern custom styling below */
 
 /* for the carousel on the index page with a gray background */
@@ -29,6 +27,13 @@ html, body {
     font-weight: bold;
 }
 
+/* resize the h1 caption welcometitle to a bit lower on small screens */
+.welcometitle h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
 /* but make it bigger if the screen size is more than 544px width*/
 @media (min-width: 544px) {
     .carousel-caption {
@@ -37,6 +42,10 @@ html, body {
     .carousel-caption h1 {
         font-size: 2.0rem;
         font-weight: bold;
+    }
+
+    .welcometitle h1 {
+        font-size: 2.0rem;
 
     }
 }
@@ -75,7 +84,7 @@ blockquote{
 .quote-box{
     overflow: hidden;
     border-radius: 10px;
-    background-color: lightgrey;
+    background-color: #F5EAEA;
     text-align: center;
     margin-top: 25px;
     color:black;
@@ -88,7 +97,6 @@ blockquote{
 
 
     font-weight: bold;
-    font-size: 5rem;
     color: black;
     font-family: "Times New Roman", Georgia, Serif;
 
@@ -96,6 +104,6 @@ blockquote{
 
 .quote-text{
 
-    font-size: 1.5rem;
-    margin-top: -65px;
+    font-size: 1.0rem;
+
 }
