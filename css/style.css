@@ -15,18 +15,30 @@ html, body {
     border-radius: 10px;
     padding: 2px;
     text-align: center;
-    right: 20%;
+    right: 15%;
     position:absolute;
     top: unset;
     bottom:10%;
-    left: 20%;
+    left: 15%;
+    font-size: 0.8rem;
 }
 
 /* resize the caroussel caption to a bit lower for the h1 caption */
 .carousel-caption h1 {
-    font-size: 2.0rem;
+    font-size: 1.2rem;
     font-weight: bold;
+}
 
+/* but make it bigger if the screen size is more than 544px width*/
+@media (min-width: 544px) {
+    .carousel-caption {
+        font-size: 1.0rem;
+    }
+    .carousel-caption h1 {
+        font-size: 2.0rem;
+        font-weight: bold;
+
+    }
 }
 
 /* custom font size for the h1 h2 and h3 blocks in the blog and content */
