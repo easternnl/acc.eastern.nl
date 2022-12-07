@@ -42,6 +42,17 @@ I have been working in IT since 2000 and done several functions. In the last 7 y
     </item>
     
     <item>
+      <title>Services</title>
+      <link>https://acc.eastern.nl/en/pages/services/</link>
+      <pubDate>Wed, 21 Sep 2022 14:04:51 +0200</pubDate>
+      
+      <guid>https://acc.eastern.nl/en/pages/services/</guid>
+      <description>Performance Test Training Workshop or training how to setup a complete performance test. In this session we will think about the goals of the test, why you want to get the answer of a goal, and how to get answer about a goal.
+In a second session we can dive deeper and learn about tooling like JMeter, LoadRunner etc to write a test.
+In the end there is a session to include performance testing in a CI/CD pipeline like Jenkins, Github Action, Azure DevOps etc</description>
+    </item>
+    
+    <item>
       <title>VDI Performance Summit</title>
       <link>https://acc.eastern.nl/en/blog/vdi-performance-summit/</link>
       <pubDate>Wed, 06 Feb 2019 00:00:00 +0200</pubDate>
