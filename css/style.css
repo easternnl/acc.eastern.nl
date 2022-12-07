@@ -39,6 +39,9 @@ html, body {
 }
 
 /* custom font size for the h1 h2 and h3 blocks in the blog and content */
+.content {
+    margin-top: 1em;
+}
 .content h1 {
     font-weight:  bold;
     font-size: 1.5rem;
