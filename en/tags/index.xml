@@ -43,5 +43,32 @@
       <description></description>
     </item>
     
+    <item>
+      <title>centos</title>
+      <link>https://acc.eastern.nl/en/tags/centos/</link>
+      <pubDate>Tue, 16 Dec 2014 12:57:09 +0200</pubDate>
+      
+      <guid>https://acc.eastern.nl/en/tags/centos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://acc.eastern.nl/en/tags/linux/</link>
+      <pubDate>Tue, 16 Dec 2014 12:57:09 +0200</pubDate>
+      
+      <guid>https://acc.eastern.nl/en/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vmware</title>
+      <link>https://acc.eastern.nl/en/tags/vmware/</link>
+      <pubDate>Tue, 16 Dec 2014 12:57:09 +0200</pubDate>
+      
+      <guid>https://acc.eastern.nl/en/tags/vmware/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
