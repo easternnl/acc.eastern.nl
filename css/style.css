@@ -73,37 +73,6 @@ html, body {
 
 /* end of eastern */
 
-blockquote{
-    border-left:none
-}
-
-.quote-badge{
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-.quote-box{
-    overflow: hidden;
-    border-radius: 10px;
-    background-color: #F5EAEA;
-    text-align: center;
-    margin-top: 25px;
-    color:black;
-    box-shadow: 2px 2px 2px 2px #E0E0E0;
-    bottom:10%;
-    left: 20%;
-}
-
-.quotation-mark{
-
-
-    font-weight: bold;
-    color: black;
-    font-family: "Times New Roman", Georgia, Serif;
-
-}
-
-.quote-text{
-
-    font-size: 1.0rem;
+yellownote div {
 
 }
