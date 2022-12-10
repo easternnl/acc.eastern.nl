@@ -48,7 +48,7 @@ I have been working in IT since 2000 and have done several functions. In the las
       <pubDate>Wed, 21 Sep 2022 14:04:51 +0200</pubDate>
       
       <guid>https://acc.eastern.nl/en/pages/services/</guid>
-      <description>Performance testing We offer the complete journey to ensure an application has a correct performance. Starting with an intake, gather all the requirements and make a load model to run the test. Scripting the application in a proper tool like JMeter, LoadRunner and if needed extra scripting to support the test in Python, Bash, Rexx, PowerShell or an another scripting language.
+      <description>Performance testing We offer the complete journey to ensure an application has a correct performance. Starting with an intake, gather all the requirements and make a load model to run the test. Scripting the application in a proper tool like JMeter, LoadRunner and if needed extra scripting to support the test in Python, Bash, Rexx, PowerShell or other scripting languages.
 Setup proper monitoring, the preferred tooling is Telegraf, Influx and Grafana but we are open to other tools.</description>
     </item>
     
