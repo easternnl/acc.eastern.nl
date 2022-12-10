@@ -239,27 +239,13 @@ The VMFS driver is not natively available, so you need to compile it yourself. G
 </div>
 </div><p>The programs will be installed in /usr/local/sbin</p>
 <p>To mount a VMFS file system:</p>
-<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./vmfs-fuse /dev/sdb1 /mount
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>*When you recognize that vmfs-fuse command is not available on you’re system make sure that fuse, fuse-devel and libuuid-devel is installed before compiling.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./vmfs-fuse /dev/sdb1 /mount
+</span></span></code></pre></div><p>*When you recognize that vmfs-fuse command is not available on you’re system make sure that fuse, fuse-devel and libuuid-devel is installed before compiling.</p>
 <p>Files can now be accessed from /mount</p>
 <h1 id="thin-provisioned-vmdks-are-copied-as-pre-allocated-vmdks">Thin-provisioned VMDK’s are copied as Pre-Allocated VMDK’s</h1>
 <p>I copied all the vm’s to my local Linux file system, but had some issues with the thin-provisoned vmdk’s. The become pre-allocated vmdk’s which uses a lot of space. With the following command you can convert them back to growing disks:</p>
-<div class="highlight"><div style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>vmware-vdiskmanager -r sourceDisk.vmdk -t <span style="color:#40a070">0</span> targetDisk.vmdk
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h1 id="conclusion">Conclusion</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>vmware-vdiskmanager -r sourceDisk.vmdk -t <span style="color:#40a070">0</span> targetDisk.vmdk
+</span></span></code></pre></div><h1 id="conclusion">Conclusion</h1>
 <p>Installing the VMFS drives on Linux / CentOS can be usefull in case of migrations, but also in case of an emergency. It is realative easy to browse you’re VMFS filesystem from a non-VMware host.</p>
 
         </div>
@@ -314,9 +300,6 @@ The VMFS driver is not natively available, so you need to compile it yourself. G
                         <p>
                             <i class="fa-brands fa-docker"></i> <a class="text-white" href="https://hub.docker.com/u/easternnl">Docker Hub</a>
                         </p>
-                        <p>
-                            <i class="fa-brands fa-stack-overflow"></i> <a class="text-white" href="https://stackoverflow.com/users/9484751/easternnl">Stack Overflow</a>
-                        </p>
                     </div>
 
                    <div class="col-md-3">
@@ -325,11 +308,11 @@ The VMFS driver is not natively available, so you need to compile it yourself. G
                             
                                 <p><a class="text-white" href="https://acc.eastern.nl/en/blog/vdi-performance-summit/">VDI Performance Summit</a></p>
                             
+                                <p><a class="text-white" href="https://acc.eastern.nl/en/blog/run-or-enable-microsoft-app-v-client-on-windows-10-anniversary-update/">Run and enable Microsoft App-V client on Windows 10 Anniversary Update</a></p>
+                            
                                 <p><a class="text-white" href="https://acc.eastern.nl/en/blog/clock-application-with-milliseconds/">Clock application with milliseconds</a></p>
                             
                                 <p><a class="text-white" href="https://acc.eastern.nl/en/blog/detailed-logon-information-from-citrix-director/">Detailed logon information from Citrix Director</a></p>
-                            
-                                <p><a class="text-white" href="https://acc.eastern.nl/en/blog/mount-vmfs-centos-7-linux/">Mount VMFS on Centos 7</a></p>
                             
                        
                             
