@@ -42,5 +42,14 @@ BTW: NL002033564B54 Algemene voorwaarden Nederland ICT 2014 </description>
 Ik werk in de IT sinds het jaar 2000 en heb verschillende functies gehad. De laatste 7 jaar ben ik gespecialiseerd in performance testen en engineering. Daarbij heb ik veel ervaring opgedaan in het ontwerpen, programmeren en analyseren van performance testen.</description>
     </item>
     
+    <item>
+      <title>Diensten</title>
+      <link>https://acc.eastern.nl/nl/pages/services/</link>
+      <pubDate>Wed, 21 Sep 2022 14:04:51 +0200</pubDate>
+      
+      <guid>https://acc.eastern.nl/nl/pages/services/</guid>
+      <description>Performance testing Wij bieden het complete traject om ervoor te zorgen dat een applicatie de juiste performance heeft. Beginnend met een intake, verzamelen van alle eisen, het maken van een load model voor de test, het scripten van de applicatie in een tool zoals JMeter, LoadRunner en als nodig extra scripting om de test te ondersteunen in Python, Bash, Rexx, PowerShell of een andere scripting taal. Opzetten van goede monitoring, onze voorkeurstooling is Telegraf, Influx en Grafana, maar we staan open voor andere tools.</description>
+    </item>
+    
   </channel>
 </rss>
