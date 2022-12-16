@@ -81,3 +81,13 @@ html, body {
 
 /* end of eastern */
 
+div.highlight {
+    /*max-width: 700px;*/
+    /*white-space: pre-wrap;*/
+    /*word-break: break-word;*/
+}
+div.highlight pre {
+    white-space: pre;
+
+}
+
