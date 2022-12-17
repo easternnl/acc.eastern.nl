@@ -80,73 +80,6 @@
                 href="https://acc.eastern.nl/nl/pages/services/"
                 />
   </url><url>
-    <loc>https://acc.eastern.nl/nl/blog/</loc>
-    <lastmod>2019-02-06T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/tags/performance/</loc>
-    <lastmod>2019-02-06T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/tags/</loc>
-    <lastmod>2019-02-06T00:00:00+02:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://acc.eastern.nl/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="nl"
-                href="https://acc.eastern.nl/nl/tags/"
-                />
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/tags/vdi/</loc>
-    <lastmod>2019-02-06T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/blog/vdi-performance-summit/</loc>
-    <lastmod>2019-02-06T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/tags/appv/</loc>
-    <lastmod>2016-08-19T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/blog/run-or-enable-microsoft-app-v-client-on-windows-10-anniversary-update/</loc>
-    <lastmod>2016-08-19T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/tags/windows/</loc>
-    <lastmod>2016-08-19T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/tags/clock/</loc>
-    <lastmod>2016-07-20T12:57:09+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/blog/clock-application-with-milliseconds/</loc>
-    <lastmod>2016-07-20T12:57:09+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/tags/citrix/</loc>
-    <lastmod>2015-12-01T12:57:09+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/blog/detailed-logon-information-from-citrix-director/</loc>
-    <lastmod>2015-12-01T12:57:09+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/tags/automation/</loc>
-    <lastmod>2015-09-14T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/tags/powershell/</loc>
-    <lastmod>2015-09-14T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/blog/workplace-and-vdi-test-automation-with-powershell/</loc>
-    <lastmod>2015-09-14T00:00:00+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/tags/centos/</loc>
-    <lastmod>2014-12-16T12:57:09+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/tags/linux/</loc>
-    <lastmod>2014-12-16T12:57:09+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/blog/mount-vmfs-centos-7-linux/</loc>
-    <lastmod>2014-12-16T12:57:09+02:00</lastmod>
-  </url><url>
-    <loc>https://acc.eastern.nl/nl/tags/vmware/</loc>
-    <lastmod>2014-12-16T12:57:09+02:00</lastmod>
-  </url><url>
     <loc>https://acc.eastern.nl/nl/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -157,6 +90,18 @@
                 rel="alternate"
                 hreflang="nl"
                 href="https://acc.eastern.nl/nl/categories/"
+                />
+  </url><url>
+    <loc>https://acc.eastern.nl/nl/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://acc.eastern.nl/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nl"
+                href="https://acc.eastern.nl/nl/tags/"
                 />
   </url>
 </urlset>
