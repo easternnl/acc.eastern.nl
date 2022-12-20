@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="How to mount a VMFS filesystem in Linux. Especially handy when migration from VMware ESX to Linux.">
+    <meta name="description" content="Eastern.nl - Performance Engineering for both infrastructure and applications by Erik van Oost using JMeter, LoadRunner and other tools on Linux, Windows, Mainframe, OpenShift, Kubernetes, VMware &amp; other platforms.">
 
 
     
@@ -17,22 +17,22 @@
 
     
     
-    <title>Eastern.nl - Performance Engineering done with passion | Mount VMFS on Centos 7</title>
+    <title>Eastern.nl - Performance Engineering done with passion | website</title>
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@easternnl" />
     <meta name="twitter:creator" content="@easternnl" />
-    <meta name="twitter:title" content="Eastern.nl - Performance Engineering done with passion | Mount VMFS on Centos 7">
-    <meta name="twitter:description" content="How to mount a VMFS filesystem in Linux. Especially handy when migration from VMware ESX to Linux.">
+    <meta name="twitter:title" content="Eastern.nl - Performance Engineering done with passion | website">
+    <meta name="twitter:description" content="Eastern.nl - Performance Engineering for both infrastructure and applications by Erik van Oost using JMeter, LoadRunner and other tools on Linux, Windows, Mainframe, OpenShift, Kubernetes, VMware &amp; other platforms.">
     <meta name="twitter:image" content="https://acc.eastern.nl/twitter-image.webp">
 
-    <meta property="og:title" content="Eastern.nl - Performance Engineering done with passion | Mount VMFS on Centos 7">
-    <meta property="og:url" content="https://acc.eastern.nl/en/blog/mount-vmfs-centos-7-linux/" />
+    <meta property="og:title" content="Eastern.nl - Performance Engineering done with passion | website">
+    <meta property="og:url" content="https://acc.eastern.nl/en/tags/website/" />
     <meta property="og:locale" content="en" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://acc.eastern.nl/og-image.webp">
     <meta property="og:site_name" content="Eastern.nl - Performance Engineering done with passion"/>
-    <meta property="og:description" content="How to mount a VMFS filesystem in Linux. Especially handy when migration from VMware ESX to Linux.">
+    <meta property="og:description" content="Eastern.nl - Performance Engineering for both infrastructure and applications by Erik van Oost using JMeter, LoadRunner and other tools on Linux, Windows, Mainframe, OpenShift, Kubernetes, VMware &amp; other platforms.">
 
 
 
@@ -143,91 +143,80 @@
 <div id="content">
 <div class="bg-dark">
     <div class="container">
-        <div class="row bg-dark text-white" >
+        <div class="row bg-dark text-white">
             <div class="col-md-12">
-                <h1>Mount VMFS on Centos 7</h1>
+                <h1>website</h1>
             </div>
-        </div>
-        <div class="row bg-dark text-white" >
-            <div class="col-md-8 text-secondary mt-1 mb-3">
-                Using a VMware VMFS filesystem in Linux
-            </div>
-            <div class="col-md-4 text-secondary mb-2">
-
-                
-                    Tags:
-
-                    
-                        
-                        <a class="text-secondary" href="https://acc.eastern.nl/en/tags/vmware">vmware</a>
-                    
-                        
-                        <a class="text-secondary" href="https://acc.eastern.nl/en/tags/centos">centos</a>
-                    
-                        
-                        <a class="text-secondary" href="https://acc.eastern.nl/en/tags/linux">linux</a>
-                    
-                
-
-
-                
-                    
-                    
-
-                    | <time datetime="2014-12-16">Dec 16, 2014</time>
-
-                
-
-
-            </div>
-
         </div>
     </div>
 </div>
 
+    <div class="container">
 
 
-<div class="container">
+    
+
     <div class="row text-dark bg-white" >
-        <div class="col-12 content">
-
-            <h1 id="why-vmfs-on-centos-7">Why VMFS on CentOS 7?</h1>
-<p>I was running a VMware ESXi server since 4 years. In VMware ESXi the options for local storage are limited, especially when you like redundant storage. The option is to buy a Raid adapter. I decided to move to CentOS with ZFS storage.
-Moving the VM’s to a Linux disk can be done by moving all the files to a NFS share, but an another option is to mount the VMFS filesystem. This is not natively available in Linux, but with fuse and vmfs-tools you can make it available. In this article I will describe how I did the installation and movement of the VM’s.</p>
-<h1 id="my-baseline-tools">My baseline tools</h1>
-<p>I did a plain CentOS 7 installation, after the installation finished succesfully I connected my harddrive with the VMFS file system to the Linux box.
-The VMFS driver is not natively available, so you need to compile it yourself. Glandium programmed a userspace VMFS driver for linux, more about this can be found here: <a href="http://glandium.org/blog/?p=2539">http://glandium.org/blog/?p=2539</a></p>
-<h1 id="howto-compile-vmfs-for-centos-7">Howto compile VMFS for CentOS 7?</h1>
-<p>Enable the EPEL repository for additional packages</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-1.noarch.rpm
-</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>sudo rpm -Uvh epel-release-7*.rpm
-</span></span></code></pre></div><p>Install the following packages for userspace filesystems</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>yum install libuuid-devel
-</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>yum install fuse fuse-devel
-</span></span></code></pre></div><p>Download the VMFS sourcecode</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>wget http://glandium.org/projects/vmfs-tools/vmfs-tools-0.2.5.tar.gz
-</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>tar -xvzf vmfs-tools*
-</span></span></code></pre></div><p>Unpack and compile</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#007020">cd</span> vmfs-tools-0.2.5
-</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>./configure
-</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>make
-</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>make install
-</span></span></code></pre></div><p>The programs will be installed in /usr/local/sbin</p>
-<p>To mount a VMFS file system:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./vmfs-fuse /dev/sdb1 /mount
-</span></span></code></pre></div><p>*When you recognize that vmfs-fuse command is not available on you’re system make sure that fuse, fuse-devel and libuuid-devel is installed before compiling.</p>
-<p>Files can now be accessed from /mount</p>
-<h1 id="thin-provisioned-vmdks-are-copied-as-pre-allocated-vmdks">Thin-provisioned VMDK’s are copied as Pre-Allocated VMDK’s</h1>
-<p>I copied all the vm’s to my local Linux file system, but had some issues with the thin-provisoned vmdk’s. The become pre-allocated vmdk’s which uses a lot of space. With the following command you can convert them back to growing disks:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>vmware-vdiskmanager -r sourceDisk.vmdk -t <span style="color:#40a070">0</span> targetDisk.vmdk
-</span></span></code></pre></div><h1 id="conclusion">Conclusion</h1>
-<p>Installing the VMFS drives on Linux / CentOS can be usefull in case of migrations, but also in case of an emergency. It is realative easy to browse you’re VMFS filesystem from a non-VMware host.</p>
-
+        <div class="col-12">
+            <h3>
+                <a class="text-body title" href="/en/blog/techniques-of-my-website/">Techniques of my website</a>
+            </h3>
         </div>
     </div>
+    <div class="row text-dark bg-white" >
+        <div class="col-md-6">
+            <p class="text-secondary">Some background information of my new eastern.nl website</p>
+        </div>
+        <div class="col-md-6 text-md-right">
 
+            <p class="text-secondary">Tags:
+                
+                    <i data-feather="tag"></i>
+                    
+                        
+                        <a class="text-secondary" href="https://acc.eastern.nl/en/tags/website">website</a>
+                    
+                        
+                        <a class="text-secondary" href="https://acc.eastern.nl/en/tags/performance">performance</a>
+                    
+                        
+                        <a class="text-secondary" href="https://acc.eastern.nl/en/tags/bootstrap">bootstrap</a>
+                    
+                        
+                        <a class="text-secondary" href="https://acc.eastern.nl/en/tags/hugo">hugo</a>
+                    
+                
+            
+                |
+                
+                
+                <i data-feather="calendar"></i>
+                <time datetime="2022-12-01">1 December 2022</time>
+            
+            </p>
+        </div>
+    </div>
+    <div class="row text-dark bg-white" >
+        
+            <div class="col-md-12">
+                <p>Introduction My old website was 10 years old. Ofcourse I updated it a bit in the last years, but did not make a full responsive website. But, today it will change because I made a new one from scratch.
+Hugo I was already thinking of building a new site a long time, but it is a big job to do if you want to start from scratch. Many opensource tooling websites are using GoHugo and that is the tool I wanted as well.</p>
+
+                <a class="summary text-black-50" href="/en/blog/techniques-of-my-website/">
+                    Continue reading ...
+                </a>
+            </div>
+        
+
+    </div>
+    <div class="row text-dark bg-white" >
+        <div class="col-12">
+
+            <hr>
+        </div>
+    </div>
+    
 </div>
-
 
 
         </div><footer class="mt-auto bg-dark">
